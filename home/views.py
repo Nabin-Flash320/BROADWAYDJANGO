@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from . import models
+
 
 # Create your views here.
 def home(request):
@@ -8,7 +10,21 @@ def about(request):
     return render(request, 'about.html')
 
 def contact(request):
-    return render(request, 'contact.html')
+    success = dict()
+    if request.method == "POST":
+        name    = request.POST['name']
+        email   = request.POST['email']
+        sub     = request.POST['subject']
+        mesg    = request.POST['message']
+        data    = models.Contact.objects.create(
+                        name        = name,
+                        email       = email,
+                        subject     = sub,
+                        message     = mesg
+            )
+        data.save()
+        success = {'message' : "Your message is send."}
+    return render(request, 'contact.html', success)
 
 def portfolio(request):
     return render(request, 'portfolio.html')
