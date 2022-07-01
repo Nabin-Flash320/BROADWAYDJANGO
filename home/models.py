@@ -23,7 +23,7 @@ class FeedBack(models.Model):
 
 class Informations(models.Model):
     address1 = models.CharField(max_length=500)
-    address1 = models.CharField(max_length=500, blank=True)
+    address2 = models.CharField(max_length=500, blank=True)
     phonenumber = models.CharField(max_length=50)
     time = models.CharField(max_length=100)
     email = models.EmailField(max_length=200)
