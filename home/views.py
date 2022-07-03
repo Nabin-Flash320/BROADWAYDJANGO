@@ -7,6 +7,7 @@ from . import models
 def base():
     views_dict = dict()
     views_dict['feedbacks'] = models.FeedBack.objects.all()
+    views_dict['services'] = models.OfferedServices.objects.all()
     views_dict['informations'] = models.Informations.objects.all().order_by('-id')[0:1]
     return views_dict
 
@@ -43,4 +44,4 @@ def price(request):
     return render(request, 'price.html')
 
 def services(request):
-    return render(request, 'services.html')
+    return render(request, 'services.html', base())

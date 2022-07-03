@@ -6,3 +6,4 @@ from . import models
 admin.site.register(models.Contact)
 admin.site.register(models.FeedBack)
 admin.site.register(models.Informations)
+admin.site.register(models.OfferedServices)

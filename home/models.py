@@ -1,3 +1,4 @@
+from distutils.archive_util import make_zipfile
 from django.db import models
 
 
@@ -31,3 +32,11 @@ class Informations(models.Model):
     def __str__(self):
         return f"{self.address1}, {self.address2}, {self.phonenumber}, {self.time}, {self.email}"
 
+
+class OfferedServices(models.Model):
+    service_title = models.CharField(max_length=200)
+    service_description = models.TextField()
+    service_icon = models.TextField()
+
+    def __str__(self):
+        return f"{self.service_title}, {self.service_description}, {self.service_icon}"
